@@ -5,6 +5,9 @@ const MainPage = () => {
   const logo = "https://byteex-task.s3.eu-north-1.amazonaws.com/LOGO.png";
   const headPhoto =
     "https://byteex-task.s3.eu-north-1.amazonaws.com/Group+6034.png";
+  const about_photo =
+    "https://byteex-task.s3.eu-north-1.amazonaws.com/Group+6036.png";
+
   return (
     <div className="mainPage">
       <div className="mainPageNotification">
@@ -141,6 +144,64 @@ const MainPage = () => {
           </div>
           <div className="mainPageHeaderRight">
             <img className="mainPageHeaderImage" src={headPhoto} alt="" />
+          </div>
+        </div>
+      </div>
+      <div className="mainPageAbout">
+        <div className="mainPageAboutImageContainer">
+          <img
+            src={about_photo}
+            alt="Woman stretching in robe"
+            className="mainPageAboutImage"
+          />
+        </div>
+        <div className="mainPageAboutTextContent">
+          <h2 className="mainPageAboutTextContentTitle">Be your best self.</h2>
+          <div className="mainPageAboutTextContentContainer">
+            <p className="intro">
+              Hi! My name’s [Insert Name], and I founded [Insert] in ____.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+              lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et
+              felis finibus consequat.
+            </p>{" "}
+            <p>
+              Fusce non nibh luctus, dignissim risus quis, bibendum dolor. Donec
+              placerat volutpat ligula, ac consectetur felis varius non. Aliquam
+              a nunc rutrum, porttitor dolor eu, pellentesque est. Vivamus id
+              arcu congue, faucibus libero nec, placerat ligula.
+            </p>
+            <p>
+              Orci varius natoque penatibus et magnis dis parturient montes,
+              nascetur ridiculus mus. Sed eu nisl a metus ultrices sodales.
+            </p>
+            <p>
+              Fusce non ante velit. Sed auctor odio eu semper molestie. Nam
+              mattis, sapien eget lobortis fringilla, eros ipsum tristique
+              tellus, ac convallis urna massa at nibh.
+            </p>
+            <p>
+              Duis non fermentum augue. Vivamus laoreet aliquam risus, sed
+              euismod leo aliquam ut. Vivamus in felis eu lacus feugiat aliquam
+              nec in sapien.
+            </p>
+            <p>Cras mattis varius mollis.</p>
+          </div>
+          <div className="mainPageHeaderButton">
+            <p className="mainPageHeaderButtonText">Customize Your Outfit</p>
+            <svg
+              width="23"
+              height="10"
+              viewBox="0 0 23 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.1072 10L23 5.00003L18.1072 0L16.6372 1.5022L19.0205 3.93781L0 3.93781V6.06226L19.0205 6.06226L16.6372 8.4978L18.1072 10Z"
+                fill="white"
+              />
+            </svg>
           </div>
         </div>
       </div>

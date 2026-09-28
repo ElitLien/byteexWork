@@ -79,6 +79,7 @@
   justify-content: center;
   padding: 22px 45px 22px 45px;
   gap: 34px;
+  cursor: pointer;
 }
 
 .mainPageHeaderButtonText {
@@ -89,4 +90,51 @@
   letter-spacing: 0.03em;
   text-align: center;
   color: #fff;
+}
+
+.mainPageAbout {
+  background-color: #f0eeef;
+  padding: 83px 99px 56px 124px;
+  display: flex;
+  gap: 67px;
+}
+
+.mainPageAboutImageContainer {
+  width: 525px;
+  height: 664px;
+}
+
+.mainPageAboutImage {
+  width: 100%;
+  height: 100%;
+}
+
+.mainPageAboutTextContent {
+  width: 670px;
+}
+
+.mainPageAboutTextContentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 14px;
+}
+
+.mainPageAboutTextContentContainer p {
+  font-family: "Sofia Sans", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 139%;
+  letter-spacing: 0.03em;
+  color: #6c6c6c;
+}
+
+.mainPageAboutTextContentTitle {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 125%;
+  letter-spacing: 0.04em;
+  color: #2a2996;
+  margin-top: 30px;
 }
