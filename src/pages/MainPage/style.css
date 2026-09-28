@@ -1,0 +1,92 @@
+.mainPageNotification {
+  width: 100%;
+  height: 36px;
+  background: #f9f0e5;
+  text-align: center;
+}
+
+.mainPageNotificationText {
+  margin: 0;
+  font-family: "Suisse Int'l", sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 318%;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: #565656;
+}
+
+.mainPageHeader {
+  margin: 33px 62px 62px 96px;
+}
+
+.mainPageHeaderLogo {
+  margin-bottom: 62px;
+}
+
+.mainPageHeaderSides {
+  display: flex;
+}
+
+.mainPageHeaderLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainPageHeaderTitle {
+  font-family: "Sofia Pro", sans-serif;
+  width: 592px;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 118%;
+  letter-spacing: 0.04em;
+  color: #01005b;
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+
+.mainPageHeaderAdvancements {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 39px;
+  width: 471px;
+}
+
+.mainPageHeaderAdvancementsSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.mainPageHeaderAdvancementsSectionText {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 153%;
+  letter-spacing: 0.03em;
+  color: #676869;
+}
+
+.mainPageHeaderButton {
+  width: 266px;
+  height: 20px;
+  background-color: #01005b;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 45px 22px 45px;
+  gap: 34px;
+}
+
+.mainPageHeaderButtonText {
+  margin: 0;
+  font-family: "Suisse Int'l", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #fff;
+}
