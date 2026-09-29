@@ -16,24 +16,24 @@
   color: #565656;
 }
 
-.mainPageHeader {
+.mainPageHero {
   margin: 33px 62px 62px 96px;
 }
 
-.mainPageHeaderLogo {
+.mainPageHeroLogo {
   margin-bottom: 62px;
 }
 
-.mainPageHeaderSides {
+.mainPageHeroSides {
   display: flex;
 }
 
-.mainPageHeaderLeft {
+.mainPageHeroLeft {
   display: flex;
   flex-direction: column;
 }
 
-.mainPageHeaderTitle {
+.mainPageHeroTitle {
   font-family: "Sofia Pro", sans-serif;
   width: 592px;
   font-weight: 400;
@@ -45,21 +45,21 @@
   margin-bottom: 25px;
 }
 
-.mainPageHeaderAdvancements {
+.mainPageHeroAdvancements {
   display: flex;
   flex-direction: column;
   margin-bottom: 39px;
   width: 471px;
 }
 
-.mainPageHeaderAdvancementsSection {
+.mainPageHeroAdvancementsSection {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 15px;
 }
 
-.mainPageHeaderAdvancementsSectionText {
+.mainPageHeroAdvancementsSectionText {
   font-family: "Sofia Pro", sans-serif;
   font-weight: 400;
   font-size: 15px;
@@ -68,7 +68,7 @@
   color: #676869;
 }
 
-.mainPageHeaderButton {
+.mainPageHeroButton {
   width: 266px;
   height: 20px;
   background-color: #01005b;
@@ -82,7 +82,7 @@
   cursor: pointer;
 }
 
-.mainPageHeaderButtonText {
+.mainPageHeroButtonText {
   margin: 0;
   font-family: "Suisse Int'l", sans-serif;
   font-weight: 400;
@@ -137,4 +137,93 @@
   letter-spacing: 0.04em;
   color: #2a2996;
   margin-top: 30px;
+}
+
+.mainPageComfort {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainPageComfortTitle {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 125%;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #01005b;
+  margin-top: 75px;
+  margin-bottom: 46px;
+}
+
+.mainPageComfortSteps {
+  display: flex;
+  justify-content: center;
+  gap: 41px;
+  margin-bottom: 56px;
+}
+
+.mainPageComfortStepCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 346px;
+  height: 236px;
+  border: 1px solid #ededed;
+  border-radius: 8px;
+  background: #f0eeef;
+  padding: 50px 24px 60px 29px;
+}
+
+.mainPageComfortStepCard:nth-child(2) {
+  background: #f9f0e6;
+}
+
+.mainPageComfortStepCardTitle {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 182%;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #01005b;
+  margin-top: 14px;
+  margin-bottom: 24px;
+}
+
+.mainPageComfortStepCardText {
+  margin: 0;
+}
+
+.mainPageComfortStepCardImage {
+  width: 68px;
+  height: 51px;
+}
+
+.mainPageComfortStepCardText {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 153%;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #676869;
+}
+
+.mainPageComfortRatingSection {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 16px;
+}
+
+.mainPageComfortRating {
+  font-family: "Suisse Int'l", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 167%;
+  letter-spacing: 0.02em;
+  color: #828282;
 }

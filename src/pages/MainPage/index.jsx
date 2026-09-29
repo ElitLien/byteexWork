@@ -7,6 +7,8 @@ const MainPage = () => {
     "https://byteex-task.s3.eu-north-1.amazonaws.com/Group+6034.png";
   const about_photo =
     "https://byteex-task.s3.eu-north-1.amazonaws.com/Group+6036.png";
+  const comfortImage =
+    "https://byteex-task.s3.eu-north-1.amazonaws.com/Group+4402.png";
 
   return (
     <div className="mainPage">
@@ -16,15 +18,15 @@ const MainPage = () => {
           SHIPPING on orders {">"} $200 | easy 45 day return window.
         </p>
       </div>
-      <div className="mainPageHeader">
-        <img className="mainPageHeaderLogo" src={logo} alt="" />
-        <div className="mainPageHeaderSides">
-          <div className="mainPageHeaderLeft">
-            <h1 className="mainPageHeaderTitle">
+      <div className="mainPageHero">
+        <img className="mainPageHeroLogo" src={logo} alt="" />
+        <div className="mainPageHeroSides">
+          <div className="mainPageHeroLeft">
+            <h1 className="mainPageHeroTitle">
               Don’t apologize for being comfortable.
             </h1>
-            <div className="mainPageHeaderAdvancements">
-              <div className="mainPageHeaderAdvancementsSection">
+            <div className="mainPageHeroAdvancements">
+              <div className="mainPageHeroAdvancementsSection">
                 <svg
                   width="31"
                   height="31"
@@ -82,11 +84,11 @@ const MainPage = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <p className="mainPageHeaderAdvancementsSectionText">
+                <p className="mainPageHeroAdvancementsSectionText">
                   Beautiful, comfortable loungewear for day or night.
                 </p>
               </div>
-              <div className="mainPageHeaderAdvancementsSection">
+              <div className="mainPageHeroAdvancementsSection">
                 <svg
                   width="31"
                   height="31"
@@ -102,11 +104,11 @@ const MainPage = () => {
                     stroke-width="0.3"
                   />
                 </svg>
-                <p className="mainPageHeaderAdvancementsSectionText">
+                <p className="mainPageHeroAdvancementsSectionText">
                   No wasteful extras, like tags or plastic packaging.
                 </p>
               </div>
-              <div className="mainPageHeaderAdvancementsSection">
+              <div className="mainPageHeroAdvancementsSection">
                 <svg
                   width="31"
                   height="31"
@@ -120,14 +122,14 @@ const MainPage = () => {
                     fill="#01005B"
                   />
                 </svg>
-                <p className="mainPageHeaderAdvancementsSectionText">
+                <p className="mainPageHeroAdvancementsSectionText">
                   Our signature fabric is incredibly comfortable — unlike
                   anything you’ve ever felt.
                 </p>
               </div>
             </div>
-            <div className="mainPageHeaderButton">
-              <p className="mainPageHeaderButtonText">Customize Your Outfit</p>
+            <div className="mainPageHeroButton">
+              <p className="mainPageHeroButtonText">Customize Your Outfit</p>
               <svg
                 width="23"
                 height="10"
@@ -142,8 +144,8 @@ const MainPage = () => {
               </svg>
             </div>
           </div>
-          <div className="mainPageHeaderRight">
-            <img className="mainPageHeaderImage" src={headPhoto} alt="" />
+          <div className="mainPageHeroRight">
+            <img className="mainPageHeroImage" src={headPhoto} alt="" />
           </div>
         </div>
       </div>
@@ -188,8 +190,8 @@ const MainPage = () => {
             </p>
             <p>Cras mattis varius mollis.</p>
           </div>
-          <div className="mainPageHeaderButton">
-            <p className="mainPageHeaderButtonText">Customize Your Outfit</p>
+          <div className="mainPageHeroButton">
+            <p className="mainPageHeroButtonText">Customize Your Outfit</p>
             <svg
               width="23"
               height="10"
@@ -203,6 +205,161 @@ const MainPage = () => {
               />
             </svg>
           </div>
+        </div>
+      </div>
+      <div className="mainPageComfort">
+        <h2 className="mainPageComfortTitle">Comfort made easy</h2>
+        <div className="mainPageComfortSteps">
+          <div className="mainPageComfortStepCard">
+            <svg
+              width="51"
+              height="51"
+              viewBox="0 0 51 51"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_1_1513)">
+                <path
+                  d="M14.3529 10.9654C14.3529 10.3264 14.8709 9.80842 15.5099 9.80842H42.5581C42.8954 9.80842 43.2159 9.95574 43.4357 10.2114C43.6555 10.4672 43.7527 10.8064 43.7018 11.1398L42.5462 18.7189C42.4589 19.2915 41.9658 19.7017 41.4039 19.7017C41.3459 19.7017 41.2872 19.6975 41.2281 19.6883C40.5963 19.5921 40.1623 19.0019 40.2586 18.3702L41.2112 12.1224H15.5099C14.8709 12.1224 14.3529 11.6043 14.3529 10.9654ZM23.1368 30.6894H12.8833L8.60841 5.73599C8.51328 5.18051 8.03172 4.77441 7.46802 4.77441H1.15698C0.517939 4.77441 0 5.29235 0 5.93139C0 6.57043 0.517939 7.08837 1.15698 7.08837H6.49243L10.7673 32.0418C10.8639 32.6056 11.353 33.0036 11.9063 33.0036C11.9711 33.0035 12.037 32.9981 12.103 32.9868C12.1076 32.9859 12.1121 32.9851 12.1167 32.9842C12.1849 32.9968 12.2552 33.0032 12.3269 33.0032H23.1368C23.7758 33.0032 24.2938 32.4853 24.2938 31.8462C24.2938 31.2072 23.7758 30.6894 23.1368 30.6894ZM20.9005 38.8768V40.9299C20.9005 42.8597 19.3305 44.4298 17.4007 44.4298C15.4708 44.4298 13.9008 42.8597 13.9008 40.9299V38.8768C13.9008 36.947 15.4707 35.3769 17.4004 35.3769C19.3304 35.3769 20.9005 36.947 20.9005 38.8768ZM18.5866 38.8768C18.5866 38.2228 18.0546 37.6909 17.4007 37.6909H17.4004C16.7467 37.6909 16.2148 38.2228 16.2148 38.8768V40.9299C16.2148 41.5837 16.7467 42.1158 17.4004 42.1158C18.0545 42.1158 18.5866 41.5837 18.5866 40.9299V38.8768ZM50.8401 28.0858C50.1573 33.5706 47.3796 38.4614 43.0182 41.857C39.3478 44.7146 34.9255 46.2255 30.3473 46.2255C29.4854 46.2255 28.6182 46.1719 27.7492 46.0637C27.0223 45.973 26.2896 45.8418 25.5706 45.6738C25.0881 45.561 24.7309 45.1535 24.6824 44.6604C24.5324 43.1337 24.5526 41.5848 24.7428 40.0568C26.1527 28.734 36.5114 20.6683 47.8341 22.0785C48.5617 22.1693 49.2945 22.3005 50.0126 22.4684C50.4949 22.5813 50.8519 22.9886 50.9005 23.4814C51.051 25.0074 51.0307 26.5565 50.8401 28.0858ZM48.661 24.5485C48.2905 24.4793 47.9182 24.4212 47.5477 24.3749C37.4922 23.1233 28.2911 30.2861 27.0389 40.3428C26.9674 40.9164 26.9231 41.4931 26.9055 42.0703L37.49 32.797C37.9704 32.376 38.7015 32.4241 39.1226 32.9049C39.5436 33.3854 39.4954 34.1165 39.0148 34.5375L28.4283 43.8123C33.1651 44.3012 37.8269 42.9658 41.5964 40.0311C45.47 37.0152 47.9374 32.6713 48.5436 27.7998C48.6785 26.7203 48.7175 25.6302 48.661 24.5485Z"
+                  fill="#01005B"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_1513">
+                  <rect width="51" height="51" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+            <h3 className="mainPageComfortStepCardTitle">You save.</h3>
+            <p className="mainPageComfortStepCardText">
+              Browse our comfort sets and save 15% when you bundle.
+            </p>
+          </div>
+
+          <div className="mainPageComfortStepCard">
+            <img
+              className="mainPageComfortStepCardImage"
+              src={comfortImage}
+              alt=""
+            />
+            <h3 className="mainPageComfortStepCardTitle">We ship.</h3>
+            <p className="mainPageComfortStepCardText">
+              We ship your items within 1–2 days of receiving your order.
+            </p>
+          </div>
+
+          <div className="mainPageComfortStepCard">
+            <svg
+              width="51"
+              height="51"
+              viewBox="0 0 60 60"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M30 5.625V54.375"
+                stroke="#15005B"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M30 43.125C22.7438 43.125 16.875 37.2562 16.875 30C16.875 22.7438 22.7438 16.875 30 16.875"
+                stroke="#15005B"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12.7688 12.7686L16.7438 16.7436"
+                stroke="#15005B"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M5.625 30H11.25"
+                stroke="#15005B"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12.7688 47.2314L16.7438 43.2563"
+                stroke="#15005B"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M30 23.5313C32.25 19.5563 36.525 16.875 41.4188 16.875C41.7188 16.875 42 16.8938 42.3 16.9125C39.1687 18.5625 37.05 21.8437 37.05 25.6125C37.05 31.05 41.4563 35.4562 46.8938 35.4562C49.8938 35.4562 52.575 34.1062 54.375 31.9875C53.4 38.3062 47.9813 43.125 41.4188 43.125C36.525 43.125 32.25 40.4438 30 36.4688"
+                stroke="#15005B"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <h3 className="mainPageComfortStepCardTitle">You enjoy!</h3>
+            <p className="mainPageComfortStepCardText">
+              Wear hernest around the house, out on the town, or in bed.
+            </p>
+          </div>
+        </div>
+
+        <div className="mainPageHeroButton">
+          <p className="mainPageHeroButtonText">Customize Your Outfit</p>
+          <svg
+            width="23"
+            height="10"
+            viewBox="0 0 23 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18.1072 10L23 5.00003L18.1072 0L16.6372 1.5022L19.0205 3.93781L0 3.93781V6.06226L19.0205 6.06226L16.6372 8.4978L18.1072 10Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+
+        <div className="mainPageComfortRatingSection">
+          <svg
+            width="81"
+            height="13"
+            viewBox="0 0 81 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13.6069 4.9397C13.584 4.86877 13.5416 4.80571 13.4846 4.75765C13.4276 4.70958 13.3583 4.67846 13.2846 4.66779L9.06058 4.05402L7.17107 0.222795C7.13804 0.156049 7.087 0.0998647 7.02374 0.0605837C6.96046 0.0213028 6.88748 0.000488281 6.81301 0.000488281C6.73854 0.000488281 6.66555 0.0213028 6.60228 0.0605837C6.53901 0.0998647 6.48798 0.156049 6.45494 0.222795L4.56543 4.05113L0.34145 4.66491C0.267816 4.67573 0.198669 4.7069 0.141801 4.75491C0.0849324 4.80293 0.0426044 4.86587 0.0195874 4.93665C-0.00342967 5.00743 -0.00622073 5.08324 0.0115288 5.15552C0.0292782 5.2278 0.0668627 5.29369 0.120046 5.34575L3.17643 8.32519L2.45524 12.5329C2.44317 12.606 2.45163 12.6809 2.47968 12.7495C2.50774 12.818 2.55428 12.8774 2.61412 12.921C2.67396 12.9646 2.74474 12.9907 2.81857 12.9964C2.89239 13.0022 2.96635 12.9873 3.03219 12.9534L6.81337 10.9693L10.5917 12.9555C10.6576 12.9895 10.7316 13.0044 10.8055 12.9987C10.8794 12.9929 10.9503 12.9667 11.0101 12.923C11.07 12.8793 11.1165 12.8198 11.1445 12.7512C11.1725 12.6825 11.1808 12.6075 11.1686 12.5343L10.4474 8.32664L13.5045 5.3472C13.5578 5.29553 13.5956 5.23002 13.6137 5.15803C13.6318 5.08604 13.6295 5.01042 13.6069 4.9397Z"
+              fill="#FFB801"
+            />
+            <path
+              d="M30.3403 4.93921C30.3174 4.86829 30.275 4.80522 30.218 4.75716C30.161 4.7091 30.0917 4.67797 30.018 4.6673L25.794 4.05353L23.9045 0.222306C23.8714 0.15556 23.8204 0.0993764 23.7571 0.0600955C23.6939 0.0208145 23.6209 0 23.5464 0C23.4719 0 23.3989 0.0208145 23.3357 0.0600955C23.2724 0.0993764 23.2214 0.15556 23.1883 0.222306L21.2988 4.05064L17.0748 4.66442C17.0012 4.67524 16.9321 4.70641 16.8752 4.75443C16.8183 4.80244 16.776 4.86538 16.753 4.93616C16.73 5.00695 16.7272 5.08275 16.7449 5.15503C16.7627 5.22731 16.8003 5.2932 16.8534 5.34527L19.9098 8.3247L19.1886 12.5324C19.1766 12.6055 19.185 12.6804 19.2131 12.749C19.2411 12.8175 19.2877 12.8769 19.3475 12.9205C19.4074 12.9641 19.4781 12.9902 19.552 12.996C19.6258 13.0017 19.6997 12.9868 19.7656 12.9529L23.5468 10.9688L27.3251 12.9551C27.391 12.989 27.465 13.0039 27.5389 12.9982C27.6128 12.9924 27.6837 12.9662 27.7435 12.9225C27.8034 12.8788 27.8499 12.8193 27.8779 12.7507C27.9059 12.682 27.9142 12.607 27.902 12.5339L27.1808 8.32615L30.2379 5.34671C30.2912 5.29504 30.329 5.22953 30.3471 5.15754C30.3652 5.08555 30.3629 5.00993 30.3403 4.93921Z"
+              fill="#FFB801"
+            />
+            <path
+              d="M47.0747 4.93921C47.0517 4.86829 47.0093 4.80522 46.9524 4.75716C46.8954 4.7091 46.8261 4.67797 46.7523 4.6673L42.5283 4.05353L40.6388 0.222306C40.6058 0.15556 40.5548 0.0993764 40.4915 0.0600955C40.4282 0.0208145 40.3552 0 40.2808 0C40.2063 0 40.1333 0.0208145 40.07 0.0600955C40.0068 0.0993764 39.9557 0.15556 39.9227 0.222306L38.0332 4.05064L33.8092 4.66442C33.7356 4.67524 33.6664 4.70641 33.6096 4.75443C33.5527 4.80244 33.5104 4.86538 33.4874 4.93616C33.4643 5.00695 33.4616 5.08275 33.4793 5.15503C33.4971 5.22731 33.5346 5.2932 33.5878 5.34527L36.6442 8.3247L35.923 12.5324C35.9109 12.6055 35.9194 12.6804 35.9475 12.749C35.9755 12.8175 36.022 12.8769 36.0819 12.9205C36.1417 12.9641 36.2125 12.9902 36.2863 12.996C36.3602 13.0017 36.4341 12.9868 36.5 12.9529L40.2811 10.9688L44.0594 12.9551C44.1253 12.989 44.1994 13.0039 44.2733 12.9982C44.3472 12.9924 44.418 12.9662 44.4779 12.9225C44.5377 12.8788 44.5843 12.8193 44.6123 12.7507C44.6402 12.682 44.6486 12.607 44.6364 12.5339L43.9152 8.32615L46.9723 5.34671C47.0256 5.29504 47.0634 5.22953 47.0815 5.15754C47.0996 5.08555 47.0972 5.00993 47.0747 4.93921Z"
+              fill="#FFB801"
+            />
+            <path
+              d="M63.8081 4.93921C63.7851 4.86829 63.7428 4.80522 63.6858 4.75716C63.6288 4.7091 63.5595 4.67797 63.4857 4.6673L59.2618 4.05353L57.3722 0.222306C57.3392 0.15556 57.2882 0.0993764 57.2249 0.0600955C57.1616 0.0208145 57.0886 0 57.0142 0C56.9397 0 56.8667 0.0208145 56.8035 0.0600955C56.7402 0.0993764 56.6891 0.15556 56.6561 0.222306L54.7666 4.05064L50.5426 4.66442C50.469 4.67524 50.3998 4.70641 50.343 4.75443C50.2861 4.80244 50.2438 4.86538 50.2208 4.93616C50.1977 5.00695 50.195 5.08275 50.2127 5.15503C50.2305 5.22731 50.268 5.2932 50.3212 5.34527L53.3776 8.3247L52.6564 12.5324C52.6443 12.6055 52.6528 12.6804 52.6809 12.749C52.7089 12.8175 52.7555 12.8769 52.8153 12.9205C52.8751 12.9641 52.9459 12.9902 53.0197 12.996C53.0936 13.0017 53.1675 12.9868 53.2334 12.9529L57.0145 10.9688L60.7928 12.9551C60.8587 12.989 60.9328 13.0039 61.0067 12.9982C61.0806 12.9924 61.1514 12.9662 61.2113 12.9225C61.2712 12.8788 61.3177 12.8193 61.3457 12.7507C61.3737 12.682 61.382 12.607 61.3698 12.5339L60.6486 8.32615L63.7057 5.34671C63.759 5.29504 63.7968 5.22953 63.8149 5.15754C63.833 5.08555 63.8306 5.00993 63.8081 4.93921Z"
+              fill="#FFB801"
+            />
+            <path
+              d="M80.5425 4.93921C80.5196 4.86829 80.4772 4.80522 80.4202 4.75716C80.3632 4.7091 80.2939 4.67797 80.2202 4.6673L75.9962 4.05353L74.1067 0.222306C74.0736 0.15556 74.0226 0.0993764 73.9593 0.0600955C73.896 0.0208145 73.8231 0 73.7486 0C73.6741 0 73.6011 0.0208145 73.5379 0.0600955C73.4746 0.0993764 73.4235 0.15556 73.3905 0.222306L71.501 4.05064L67.277 4.66442C67.2034 4.67524 67.1342 4.70641 67.0773 4.75443C67.0205 4.80244 66.9782 4.86538 66.9551 4.93616C66.9321 5.00695 66.9293 5.08275 66.9471 5.15503C66.9648 5.22731 67.0024 5.2932 67.0556 5.34527L70.112 8.3247L69.3908 12.5324C69.3787 12.6055 69.3872 12.6804 69.4152 12.749C69.4433 12.8175 69.4898 12.8769 69.5497 12.9205C69.6095 12.9641 69.6803 12.9902 69.7541 12.996C69.8279 13.0017 69.9019 12.9868 69.9678 12.9529L73.7489 10.9688L77.5272 12.9551C77.5931 12.989 77.6672 13.0039 77.7411 12.9982C77.815 12.9924 77.8858 12.9662 77.9457 12.9225C78.0056 12.8788 78.0521 12.8193 78.0801 12.7507C78.1081 12.682 78.1164 12.607 78.1042 12.5339L77.383 8.32615L80.4401 5.34671C80.4934 5.29504 80.5312 5.22953 80.5493 5.15754C80.5674 5.08555 80.5651 5.00993 80.5425 4.93921Z"
+              fill="#FFB801"
+            />
+          </svg>
+          <span className="mainPageComfortRating">
+            Over 500+ 5 Star Reviews Online
+          </span>
         </div>
       </div>
     </div>
