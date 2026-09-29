@@ -661,3 +661,63 @@ img {
   color: #676869;
   margin-top: 20px;
 }
+
+.mainPageInfoBanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f0eeef;
+  padding-block: 56px;
+  gap: 44px;
+}
+
+.mainPageInfoBannerTitle {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 125%;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #01005b;
+  margin-top: 0px;
+}
+
+.mainPageInfoBannerSections {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.mainPageInfoBannerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 280px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.mainPageInfoBannerSection + .mainPageInfoBannerSection {
+  border-left: 1px solid #d9d6d7;
+}
+
+.mainPageInfoBannerSection h2 {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: #01005b;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.mainPageInfoBannerSection p {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 153%;
+  letter-spacing: 0.03em;
+  color: #15005B;
+  margin: 0;
+}
