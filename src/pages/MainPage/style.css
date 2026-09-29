@@ -1,3 +1,9 @@
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .mainPageNotification {
   width: 100%;
   height: 36px;
@@ -17,7 +23,7 @@
 }
 
 .mainPageHero {
-  margin: 33px 62px 62px 96px;
+  margin: 33px 62px 96px 96px;
 }
 
 .mainPageHeroLogo {
@@ -169,8 +175,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 346px;
-  height: 236px;
   border: 1px solid #ededed;
   border-radius: 8px;
   background: #f0eeef;
@@ -269,7 +273,7 @@
   align-items: center;
   margin-top: 76px;
   margin-bottom: 64px;
-  width: 1258px;
+  width: 100%;
 }
 
 .mainPageReviewsSectionBl {
@@ -298,10 +302,16 @@
   margin-top: 0;
 }
 
+.mainPageReviewsMainSectionArrow {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+}
+
 .mainPageReviewsSections {
   display: flex;
   justify-content: space-around;
-  width: 1258px;
+  width: 80%;
   gap: 42px;
   margin-left: 40px;
   margin-right: 40px;
@@ -405,4 +415,249 @@
 .mainPageQuestionsImage {
   width: 430px;
   height: 645px;
+}
+
+.mainPageSeenIn {
+  position: relative;
+  background: linear-gradient(
+    0deg,
+    #ffffff 0%,
+    #f9f0e5 28%,
+    #f9f0e5 68%
+  );
+  padding-block: 77px;
+}
+
+.mainPageSeenInEcoStylistImage img {
+  width: 100%;
+}
+
+.mainPageSeenInReview {
+  position: absolute;
+  top: -80px;
+  left: 96px;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #ededed;
+  border-radius: 10px;
+  box-shadow: 1px 4px 12px 0 rgba(0, 0, 0, 0.08);
+  padding: 18px 22px 22px;
+}
+
+.mainPageSeenInReviewHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.mainPageSeenInReviewAvatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.mainPageSeenInReviewHeadInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mainPageSeenInReviewHeadTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mainPageSeenInReviewName {
+  margin: 0;
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: #01005b;
+}
+
+.mainPageSeenInReviewStars {
+  display: flex;
+  align-items: center;
+}
+
+.mainPageSeenInReviewSub {
+  font-family: "Suisse Int'l", sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  color: #828282;
+}
+
+.mainPageSeenInReviewText {
+  margin: 0;
+  font-family: "Suisse Int'l", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 175%;
+  letter-spacing: 0.03em;
+  color: #676869;
+}
+
+.mainPageSeenInContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+
+.mainPageSeenInLabel {
+  margin: 0;
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: #676869;
+}
+
+.mainPageSeenInLogos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.mainPageSeenInLogo {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  color: #b3a998;
+  white-space: nowrap;
+}
+
+.mainPageProud {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  padding: 90px 96px 90px 124px;
+}
+
+.mainPageProudLeft {
+  width: 560px;
+}
+
+.mainPageProudTitle {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 125%;
+  letter-spacing: 0.04em;
+  color: #01005b;
+  margin: 0 0 40px;
+}
+
+.mainPageProudFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.mainPageProudFeature {
+  display: flex;
+  gap: 18px;
+}
+
+.mainPageProudFeatureIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.mainPageProudFeatureContent {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+
+.mainPageProudFeatureTitle {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 133%;
+  letter-spacing: 4%;
+  color: #01005b;
+  margin: 0 0 8px;
+}
+
+.mainPageProudFeatureText {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 147%;
+  letter-spacing: 0.03em;
+  color: #676869;
+  margin: 0;
+}
+
+.mainPageProudRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainPageProudCarousel {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.mainPageProudArrow {
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mainPageProudImageWrap {
+  position: relative;
+  width: 430px;
+  height: 560px;
+}
+
+.mainPageProudImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mainPageProudThumbs {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.mainPageProudThumb {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.mainPageProudThumbActive {
+  opacity: 1;
+  border-color: #fff;
+}
+
+.mainPageProudCaption {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  color: #676869;
+  margin-top: 20px;
 }
