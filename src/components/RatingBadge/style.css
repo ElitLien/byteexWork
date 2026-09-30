@@ -1,0 +1,15 @@
+.ratingBadge {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 16px;
+}
+
+.ratingBadgeText {
+  font-family: "Suisse Int'l", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 167%;
+  letter-spacing: 0.02em;
+  color: #828282;
+}

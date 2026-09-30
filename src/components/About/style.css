@@ -1,0 +1,80 @@
+.about {
+  background-color: #f0eeef;
+  padding: 83px 99px 56px 124px;
+  display: flex;
+  gap: 67px;
+}
+
+.aboutImageContainer {
+  width: 525px;
+  height: 664px;
+}
+
+.aboutImage {
+  width: 100%;
+  height: 100%;
+}
+
+.aboutTextContent {
+  width: 670px;
+}
+
+.aboutTextContentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 14px;
+}
+
+.aboutTextContentContainer p {
+  font-family: "Sofia Sans", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 139%;
+  letter-spacing: 0.03em;
+  color: #6c6c6c;
+}
+
+.aboutTextContentTitle {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 125%;
+  letter-spacing: 0.04em;
+  color: #2a2996;
+  margin-top: 30px;
+}
+
+@media (max-width: 480px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+    padding: 40px 20px;
+  }
+  .aboutTextContent {
+    display: contents;
+  }
+  .aboutTextContentTitle {
+    order: 1;
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+  }
+  .aboutImageContainer {
+    order: 2;
+    width: 100%;
+    height: auto;
+  }
+  .aboutImage {
+    height: auto;
+  }
+  .aboutTextContentContainer {
+    order: 3;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .about .customizeButton {
+    order: 4;
+  }
+}

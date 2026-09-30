@@ -1,0 +1,79 @@
+.infoBanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f0eeef;
+  padding-block: 56px;
+  gap: 44px;
+}
+
+.infoBannerTitle {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 125%;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #01005b;
+  margin-top: 0px;
+}
+
+.infoBannerSections {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.infoBannerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 280px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.infoBannerSection + .infoBannerSection {
+  border-left: 1px solid #d9d6d7;
+}
+
+.infoBannerSection h2 {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: #01005b;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.infoBannerSection p {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 153%;
+  letter-spacing: 0.03em;
+  color: #15005b;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .infoBanner {
+    padding-block: 40px;
+    gap: 30px;
+  }
+  .infoBannerSections {
+    flex-direction: column;
+    align-items: center;
+  }
+  .infoBannerSection {
+    width: 100%;
+    max-width: 300px;
+    padding: 22px 0;
+  }
+  .infoBannerSection + .infoBannerSection {
+    border-left: none;
+    border-top: 1px solid #d9d6d7;
+  }
+}

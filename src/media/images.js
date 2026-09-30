@@ -1,0 +1,19 @@
+const base = "https://byteex-task.s3.eu-north-1.amazonaws.com/";
+
+export const logo = `${base}LOGO.png`;
+export const headPhoto = `${base}Group+6034.png`;
+export const aboutPhoto = `${base}Group+6036.png`;
+export const comfortImage = `${base}Group+4402.png`;
+export const reviewImage = `${base}Group+4522.jpg`;
+export const questionsImage = `${base}Component+5.png`;
+export const ecoStylistImage = `${base}Artboard3+1.png`;
+export const canadianLivingImage = `${base}Artboard6+1.png`;
+export const jillianHarrisImage = `${base}Artboard4+1.png`;
+export const ecoHubImage = `${base}Artboard2+1.png`;
+export const trendHunterImage = `${base}Artboard5+1.png`;
+export const amyImage = `${base}color+wheel.png`;
+export const whiteRobeImage = `${base}image+22.jpg`;
+export const grayRobeImage = `${base}mock.png`;
+export const discoverImage = `${base}Group+6037.png`;
+export const paymentImage = `${base}Screenshot+2022-04-15+at+9.10+1.png`;
+export const reviewsMobileImage = `${base}Component+17.png`;

@@ -1,0 +1,99 @@
+.hero {
+  margin: 33px 62px 96px 96px;
+}
+
+.heroLogo {
+  margin-bottom: 62px;
+}
+
+.heroSides {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroTitle {
+  font-family: "Sofia Pro", sans-serif;
+  width: 592px;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 118%;
+  letter-spacing: 0.04em;
+  color: #01005b;
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+
+.heroAdvancements {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 39px;
+  width: 471px;
+}
+
+.heroAdvancementsSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.heroAdvancementsSection svg {
+  width: 31px;
+  height: 31px;
+  flex-shrink: 0;
+}
+
+.heroAdvancementsSectionText {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 153%;
+  letter-spacing: 0.03em;
+  color: #676869;
+}
+
+@media (max-width: 480px) {
+  .hero {
+    margin: 20px 20px 95px;
+  }
+  .heroLogo {
+    display: block;
+    margin: 0 auto 24px;
+  }
+  .heroSides {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* display:contents lets title / bullets / button interleave with the image */
+  .heroLeft {
+    display: contents;
+  }
+  .heroTitle {
+    order: 1;
+    width: 100%;
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .heroRight {
+    order: 2;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .heroImage {
+    width: 100%;
+  }
+  .heroAdvancements {
+    order: 3;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .heroSides .customizeButton {
+    order: 4;
+  }
+}

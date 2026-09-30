@@ -1,0 +1,178 @@
+.proud {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  padding: 90px 96px 90px 124px;
+}
+
+.proudLeft {
+  width: 560px;
+}
+
+.proudTitle {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 125%;
+  letter-spacing: 0.04em;
+  color: #01005b;
+  margin: 0 0 40px;
+}
+
+.proudFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.proudFeature {
+  display: flex;
+  gap: 18px;
+}
+
+.proudFeatureIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.proudFeatureContent {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+
+.proudFeatureTitle {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 133%;
+  letter-spacing: 4%;
+  color: #01005b;
+  margin: 0 0 8px;
+}
+
+.proudFeatureText {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 147%;
+  letter-spacing: 0.03em;
+  color: #676869;
+  margin: 0;
+}
+
+.proudRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.proudCarousel {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.proudArrow {
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.proudImageWrap {
+  position: relative;
+  width: 430px;
+  height: 560px;
+}
+
+.proudImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.proudThumbs {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.proudThumb {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.proudThumbActive {
+  opacity: 1;
+  border-color: #fff;
+}
+
+.proudCaption {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  color: #676869;
+  margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+  .proud {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 48px 20px;
+  }
+  .proudLeft {
+    display: contents;
+  }
+  .proudTitle {
+    order: 1;
+    width: 100%;
+    font-size: 28px;
+    text-align: center;
+    margin: 0;
+  }
+  .proudRight {
+    order: 2;
+    width: 100%;
+  }
+  .proudFeatures {
+    order: 3;
+    width: 100%;
+    gap: 0;
+  }
+  .proudFeature {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 24px 0;
+    border-top: 1px solid #eaeaea;
+  }
+  .proudFeatures .proudFeature:first-child {
+    border-top: none;
+  }
+  .proudCarousel {
+    width: 100%;
+    gap: 8px;
+  }
+  .proudImageWrap {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    height: auto;
+    aspect-ratio: 43 / 56;
+  }
+  .proudThumb {
+    width: 26px;
+    height: 26px;
+  }
+}

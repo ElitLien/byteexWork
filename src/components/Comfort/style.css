@@ -1,0 +1,119 @@
+.comfort {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comfortTitle {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 125%;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #01005b;
+  margin-top: 75px;
+  margin-bottom: 46px;
+}
+
+.comfortSteps {
+  display: flex;
+  justify-content: center;
+  gap: 41px;
+  margin-bottom: 56px;
+}
+
+.comfortStepCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ededed;
+  border-radius: 8px;
+  background: #f0eeef;
+  padding: 50px 24px 60px 29px;
+}
+
+.comfortStepCard:nth-child(2) {
+  background: #f9f0e6;
+}
+
+.comfortStepCardTitle {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 182%;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #01005b;
+  margin-top: 14px;
+  margin-bottom: 24px;
+}
+
+.comfortStepCardImage {
+  width: 68px;
+  height: 51px;
+}
+
+.comfortStepCardText {
+  margin: 0;
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 153%;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #676869;
+}
+
+/* Carousel wrapper is invisible on desktop; arrows are hidden. */
+.comfortCarousel {
+  display: contents;
+}
+
+.comfortArrow {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .comfort {
+    padding: 0 20px;
+  }
+  .comfortTitle {
+    margin-top: 48px;
+    margin-bottom: 28px;
+  }
+  .comfortCarousel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .comfortArrow {
+    display: flex;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .comfortSteps {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0;
+    margin-bottom: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .comfortSteps::-webkit-scrollbar {
+    display: none;
+  }
+  .comfortStepCard {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    scroll-snap-align: center;
+  }
+}

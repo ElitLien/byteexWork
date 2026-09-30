@@ -1,0 +1,30 @@
+.customizeButton {
+  width: 266px;
+  height: 20px;
+  background-color: #01005b;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 45px 22px 45px;
+  gap: 34px;
+  cursor: pointer;
+}
+
+.customizeButtonText {
+  margin: 0;
+  font-family: "Suisse Int'l", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .customizeButton {
+    width: auto;
+    align-self: stretch;
+  }
+}

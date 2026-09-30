@@ -1,0 +1,154 @@
+.seenIn {
+  position: relative;
+  background: linear-gradient(0deg, #ffffff 0%, #f9f0e5 28%, #f9f0e5 68%);
+  padding-block: 77px;
+}
+
+.seenInContainter {
+  position: absolute;
+  top: -79px;
+  left: 96px;
+}
+
+.seenInEcoStylistImage img {
+  width: 100%;
+}
+
+.seenInReview {
+  width: 300px;
+  background: #fff;
+  border: 1px solid #ededed;
+  border-radius: 10px;
+  box-shadow: 1px 4px 12px 0 rgba(0, 0, 0, 0.08);
+  padding: 18px 22px 22px;
+}
+
+.seenInReviewHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.seenInReviewAvatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.seenInReviewHeadInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.seenInReviewHeadTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.seenInReviewName {
+  margin: 0;
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: #01005b;
+}
+
+.seenInReviewStars {
+  display: flex;
+  align-items: center;
+}
+
+.seenInReviewSub {
+  font-family: "Suisse Int'l", sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  color: #828282;
+}
+
+.seenInReviewText {
+  margin: 0;
+  font-family: "Suisse Int'l", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 175%;
+  letter-spacing: 0.03em;
+  color: #676869;
+}
+
+.seenInContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+
+.seenInLabel {
+  margin: 0;
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: #676869;
+}
+
+.seenInLogos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.seenInLogo {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  color: #b3a998;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .seenIn {
+    padding: 24px 20px 32px;
+  }
+  .seenInContainter {
+    left: 0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: -70px;
+    width: 100%;
+  }
+  .seenInReview {
+    margin: 0 20px;
+    width: auto;
+  }
+  .seenInContent {
+    margin-top: 92px;
+    gap: 16px;
+  }
+  .seenInLogos {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .seenInLogos::-webkit-scrollbar {
+    display: none;
+  }
+  .seenInEcoStylistImage {
+    flex: 0 0 42%;
+    scroll-snap-align: center;
+  }
+}

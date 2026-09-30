@@ -1,0 +1,143 @@
+.discover {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  text-align: center;
+  padding: 90px 40px 70px;
+  background: linear-gradient(180deg, #ffffff 55%, #f9f0e5 100%);
+}
+
+.discoverTitle {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 125%;
+  letter-spacing: 0.04em;
+  color: #01005b;
+  margin: 0 0 14px;
+}
+
+.discoverText {
+  width: 610px;
+  max-width: 100%;
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 153%;
+  letter-spacing: 0.03em;
+  color: #676869;
+  margin: 0 0 48px;
+}
+
+.discoverImages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+/* Wider variant of the shared button (higher specificity wins over the base). */
+.customizeButton.discoverButton {
+  width: 380px;
+  margin-bottom: 18px;
+}
+
+.discoverPayRow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 60px;
+}
+
+.discoverShip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 18px;
+  border-right: 2px solid #d9d6d7;
+}
+
+.discoverShipText {
+  font-family: "Suisse Int'l", sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: #3a9d5d;
+}
+
+.discoverPayments {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.discoverPayIcon {
+  width: 30px;
+  height: 20px;
+  border-radius: 3px;
+  background: #ffffff;
+  border: 1px solid #e6e4e5;
+}
+
+.discoverFeatures {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.discoverFeature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 290px;
+  padding: 0 35px;
+  text-align: left;
+}
+
+.discoverFeature + .discoverFeature {
+  border-left: 1px solid #d9d6d7;
+}
+
+.discoverFeatureText {
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 138%;
+  letter-spacing: 0.03em;
+  color: #676869;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .discover {
+    padding: 56px 20px 48px;
+  }
+  .discoverTitle {
+    font-size: 28px;
+  }
+  .discoverText {
+    width: 100%;
+    margin-bottom: 36px;
+  }
+  .customizeButton.discoverButton {
+    width: auto;
+  }
+  .discoverPayRow {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 18px;
+  }
+  .discoverFeatures {
+    flex-direction: column;
+    align-items: center;
+  }
+  .discoverFeature {
+    width: 300px;
+    padding: 20px 0;
+  }
+  .discoverFeature + .discoverFeature {
+    border-left: none;
+    border-top: 1px solid #d9d6d7;
+  }
+}
