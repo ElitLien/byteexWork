@@ -1,8 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./style.css";
 
 const MainPage = () => {
   const [proudCurrent, setProudCurrent] = useState(0);
+  const comfortStepsRef = useRef(null);
+  const reviewsSectionsRef = useRef(null);
+  const [comfortDot, setComfortDot] = useState(0);
+  const [reviewsDot, setReviewsDot] = useState(0);
+
+  const updateCarouselDot = (el, setDot) => {
+    if (el) setDot(Math.round(el.scrollLeft / el.clientWidth));
+  };
+
+  const stepCarousel = (ref, direction) => {
+    const el = ref.current;
+    if (el) el.scrollBy({ left: direction * el.clientWidth, behavior: "smooth" });
+  };
+
+  const goToSlide = (ref, index) => {
+    const el = ref.current;
+    if (el) el.scrollTo({ left: index * el.clientWidth, behavior: "smooth" });
+  };
   const [openFaqs, setOpenFaqs] = useState([0]);
 
   const toggleFaq = (index) =>
@@ -76,6 +94,7 @@ const MainPage = () => {
   const grayRobeImage = "https://byteex-task.s3.eu-north-1.amazonaws.com/mock.png";
   const discoverImage = "https://byteex-task.s3.eu-north-1.amazonaws.com/Group+6037.png";
   const paymentImage = "https://byteex-task.s3.eu-north-1.amazonaws.com/Screenshot+2022-04-15+at+9.10+1.png";
+  const reviewsMobileImage = "https://byteex-task.s3.eu-north-1.amazonaws.com/Component+17.png";
 
   const starsSmall = (
     <svg
@@ -219,6 +238,35 @@ const MainPage = () => {
   const showNextProud = () =>
     setProudCurrent((index) => (index + 1) % proudSlides.length);
 
+  const reviewAvatar = (
+    <svg
+      width="37"
+      height="37"
+      viewBox="0 0 39 39"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="19.5" cy="19.5" r="19.5" fill="#1C2E58" />
+    </svg>
+  );
+
+  const extraReviews = [
+    {
+      name: "Mia, R.",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed sollicitudin dolor, non sodales justo.",
+    },
+    {
+      name: "Sara, L.",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed sollicitudin dolor, non sodales justo. Aenean eget aliquet mi.",
+    },
+    {
+      name: "Emma, K.",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed sollicitudin dolor, non sodales justo.",
+    },
+  ];
+
+  const reviewsTotal = 3 + extraReviews.length;
+
   return (
     <div className="mainPage">
       <div className="mainPageNotification">
@@ -318,18 +366,9 @@ const MainPage = () => {
                 </p>
               </div>
               <div className="mainPageHeroAdvancementsSection">
-                <svg
-                  width="31"
-                  height="31"
-                  viewBox="0 0 31 31"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="15.5" cy="15.5" r="15.5" fill="#F9F0E5" />
-                  <path
-                    d="M9.27847 12.3002C10.6372 10.9827 11.7105 9.94096 14.6232 11.7996C16.0224 12.692 17.1509 13.0293 18.0897 13.0275C19.7346 13.0275 20.801 11.9946 21.7226 11.1013C21.8808 10.9459 21.9792 10.727 21.9969 10.491C22.0146 10.2551 21.9502 10.0206 21.8175 9.83731C21.7527 9.74737 21.6726 9.67302 21.582 9.61864C21.4913 9.56427 21.3919 9.53098 21.2897 9.52074C21.1875 9.5105 21.0844 9.52353 20.9867 9.55904C20.889 9.59456 20.7986 9.65185 20.7208 9.72751C19.3629 11.0468 18.2888 12.0886 15.3761 10.2282C11.5277 7.77491 9.7249 9.52285 8.27672 10.9282C8.11864 11.0838 8.02041 11.3027 8.00284 11.5387C7.98527 11.7746 8.04975 12.009 8.18261 12.1922C8.24741 12.282 8.32751 12.3562 8.41815 12.4104C8.50879 12.4646 8.60814 12.4977 8.71032 12.5078C8.8125 12.5178 8.91543 12.5047 9.01302 12.469C9.11061 12.4334 9.20087 12.376 9.27847 12.3002ZM20.7208 14.2133C19.3629 15.5309 18.2888 16.5744 15.3761 14.714C11.5277 12.259 9.7249 14.0078 8.27672 15.4123C8.11864 15.5678 8.02041 15.7868 8.00284 16.0227C7.98527 16.2587 8.04975 16.4931 8.18261 16.6762C8.2473 16.7662 8.32731 16.8405 8.4179 16.8949C8.50848 16.9492 8.60781 16.9825 8.70999 16.9927C8.81217 17.003 8.91513 16.99 9.01278 16.9545C9.11043 16.919 9.20077 16.8617 9.27847 16.786C10.6372 15.4676 11.7105 14.4259 14.6232 16.2836C16.0224 17.1778 17.1509 17.5133 18.0897 17.5133C19.7346 17.5133 20.801 16.4804 21.7226 15.5853C21.8809 15.4302 21.9794 15.2114 21.9971 14.9755C22.0148 14.7397 21.9504 14.5053 21.8175 14.3222C21.7527 14.2323 21.6726 14.1579 21.5819 14.1035C21.4913 14.0491 21.3918 14.0159 21.2896 14.0057C21.1873 13.9956 21.0843 14.0087 20.9866 14.0444C20.8889 14.08 20.7985 14.1375 20.7208 14.2133ZM20.7208 18.6982C19.3629 20.0175 18.2888 21.0593 15.3761 19.2007C11.5277 16.7456 9.7249 18.4936 8.27672 19.899C8.11864 20.0545 8.02041 20.2734 8.00284 20.5094C7.98527 20.7453 8.04975 20.9797 8.18261 21.1629C8.24735 21.2528 8.32742 21.3271 8.41806 21.3814C8.50871 21.4356 8.60808 21.4688 8.71029 21.4789C8.8125 21.489 8.91546 21.4757 9.01306 21.44C9.11066 21.4043 9.20092 21.3468 9.27847 21.271C10.6372 19.9534 11.7105 18.9126 14.6232 20.7703C16.0224 21.6627 17.1509 22 18.0897 22C19.7346 22 20.801 20.9653 21.7226 20.072C21.8808 19.9166 21.9792 19.6977 21.9969 19.4617C22.0146 19.2258 21.9502 18.9913 21.8175 18.808C21.7527 18.7182 21.6726 18.6439 21.5819 18.5896C21.4913 18.5353 21.3919 18.5021 21.2897 18.4918C21.1875 18.4816 21.0845 18.4946 20.9868 18.53C20.8891 18.5655 20.7987 18.6227 20.7208 18.6982Z"
-                    fill="#01005B"
-                  />
+                <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="15.5" cy="15.5" r="15.5" fill="#F9F0E5"/>
+                  <path d="M9.27847 12.3002C10.6372 10.9827 11.7105 9.94096 14.6232 11.7996C16.0224 12.692 17.1509 13.0293 18.0897 13.0275C19.7346 13.0275 20.801 11.9946 21.7226 11.1013C21.8808 10.9459 21.9792 10.727 21.9969 10.491C22.0146 10.2551 21.9502 10.0206 21.8175 9.83731C21.7527 9.74737 21.6726 9.67302 21.582 9.61864C21.4913 9.56427 21.3919 9.53098 21.2897 9.52074C21.1875 9.5105 21.0844 9.52353 20.9867 9.55904C20.889 9.59456 20.7986 9.65185 20.7208 9.72751C19.3629 11.0468 18.2888 12.0886 15.3761 10.2282C11.5277 7.77491 9.7249 9.52285 8.27672 10.9282C8.11864 11.0838 8.02041 11.3027 8.00284 11.5387C7.98527 11.7746 8.04975 12.009 8.18261 12.1922C8.24741 12.282 8.32751 12.3562 8.41815 12.4104C8.50879 12.4646 8.60814 12.4977 8.71032 12.5078C8.8125 12.5178 8.91543 12.5047 9.01302 12.469C9.11061 12.4334 9.20087 12.376 9.27847 12.3002ZM20.7208 14.2133C19.3629 15.5309 18.2888 16.5744 15.3761 14.714C11.5277 12.259 9.7249 14.0078 8.27672 15.4123C8.11864 15.5678 8.02041 15.7868 8.00284 16.0227C7.98527 16.2587 8.04975 16.4931 8.18261 16.6762C8.2473 16.7662 8.32731 16.8405 8.4179 16.8949C8.50848 16.9492 8.60781 16.9825 8.70999 16.9927C8.81217 17.003 8.91513 16.99 9.01278 16.9545C9.11043 16.919 9.20077 16.8617 9.27847 16.786C10.6372 15.4676 11.7105 14.4259 14.6232 16.2836C16.0224 17.1778 17.1509 17.5133 18.0897 17.5133C19.7346 17.5133 20.801 16.4804 21.7226 15.5853C21.8809 15.4302 21.9794 15.2114 21.9971 14.9755C22.0148 14.7397 21.9504 14.5053 21.8175 14.3222C21.7527 14.2323 21.6726 14.1579 21.5819 14.1035C21.4913 14.0491 21.3918 14.0159 21.2896 14.0057C21.1873 13.9956 21.0843 14.0087 20.9866 14.0444C20.8889 14.08 20.7985 14.1375 20.7208 14.2133ZM20.7208 18.6982C19.3629 20.0175 18.2888 21.0593 15.3761 19.2007C11.5277 16.7456 9.7249 18.4936 8.27672 19.899C8.11864 20.0545 8.02041 20.2734 8.00284 20.5094C7.98527 20.7453 8.04975 20.9797 8.18261 21.1629C8.24735 21.2528 8.32742 21.3271 8.41806 21.3814C8.50871 21.4356 8.60808 21.4688 8.71029 21.4789C8.8125 21.489 8.91546 21.4757 9.01306 21.44C9.11066 21.4043 9.20092 21.3468 9.27847 21.271C10.6372 19.9534 11.7105 18.9126 14.6232 20.7703C16.0224 21.6627 17.1509 22 18.0897 22C19.7346 22 20.801 20.9653 21.7226 20.072C21.8808 19.9166 21.9792 19.6977 21.9969 19.4617C22.0146 19.2258 21.9502 18.9913 21.8175 18.808C21.7527 18.7182 21.6726 18.6439 21.5819 18.5896C21.4913 18.5353 21.3919 18.5021 21.2897 18.4918C21.1875 18.4816 21.0845 18.4946 20.9868 18.53C20.8891 18.5655 20.7987 18.6227 20.7208 18.6982Z" fill="#01005B"/>
                 </svg>
                 <p className="mainPageHeroAdvancementsSectionText">
                   Our signature fabric is incredibly comfortable — unlike
@@ -359,29 +398,31 @@ const MainPage = () => {
         </div>
       </div>
       <div className="mainPageSeenIn">
-        <div className="mainPageSeenInReview">
-          <div className="mainPageSeenInReviewHead">
-            <img
-              className="mainPageSeenInReviewAvatar"
-              src={amyImage}
-              alt=""
-            />
-            <div className="mainPageSeenInReviewHeadInfo">
-              <div className="mainPageSeenInReviewHeadTop">
-                <p className="mainPageSeenInReviewName">Amy P.</p>
-                <div className="mainPageSeenInReviewStars">{starsSmall}</div>
+        <div className="mainPageSeenInContainter">
+          <div className="mainPageSeenInReview">
+            <div className="mainPageSeenInReviewHead">
+              <img
+                className="mainPageSeenInReviewAvatar"
+                src={amyImage}
+                alt=""
+              />
+              <div className="mainPageSeenInReviewHeadInfo">
+                <div className="mainPageSeenInReviewHeadTop">
+                  <p className="mainPageSeenInReviewName">Amy P.</p>
+                  <div className="mainPageSeenInReviewStars">{starsSmall}</div>
+                </div>
+                <span className="mainPageSeenInReviewSub">
+                  One of 500+ 5 Star Reviews Online
+                </span>
               </div>
-              <span className="mainPageSeenInReviewSub">
-                One of 500+ 5 Star Reviews Online
-              </span>
             </div>
+            <p className="mainPageSeenInReviewText">
+              Overjoyed with my Loungewear set. I have the jogger and the
+              sweatshirt. Quality product on every level. From the compostable
+              packaging, to the supplied washing bag, even the garments smells
+              like fresh herbs when I first held them.
+            </p>
           </div>
-          <p className="mainPageSeenInReviewText">
-            Overjoyed with my Loungewear set. I have the jogger and the
-            sweatshirt. Quality product on every level. From the compostable
-            packaging, to the supplied washing bag, even the garments smells
-            like fresh herbs when I first held them.
-          </p>
         </div>
         <div className="mainPageSeenInContent">
           <p className="mainPageSeenInLabel">as seen in</p>
@@ -517,7 +558,18 @@ const MainPage = () => {
       </div>
       <div className="mainPageComfort">
         <h2 className="mainPageComfortTitle">Comfort made easy</h2>
-        <div className="mainPageComfortSteps">
+        <div className="mainPageComfortCarousel">
+          <div
+            className="mainPageComfortArrow"
+            onClick={() => stepCarousel(comfortStepsRef, -1)}
+          >
+            {arrowLeft}
+          </div>
+          <div
+            className="mainPageComfortSteps"
+            ref={comfortStepsRef}
+            onScroll={(e) => updateCarouselDot(e.currentTarget, setComfortDot)}
+          >
           <div className="mainPageComfortStepCard">
             <svg
               width="51"
@@ -618,6 +670,26 @@ const MainPage = () => {
               Wear hernest around the house, out on the town, or in bed.
             </p>
           </div>
+          </div>
+          <div
+            className="mainPageComfortArrow"
+            onClick={() => stepCarousel(comfortStepsRef, 1)}
+          >
+            {arrowRight}
+          </div>
+        </div>
+        <div className="mainPageComfortDots">
+          {[0, 1, 2].map((index) => (
+            <span
+              key={index}
+              className={
+                index === comfortDot
+                  ? "mainPageCarouselDot mainPageCarouselDotActive"
+                  : "mainPageCarouselDot"
+              }
+              onClick={() => goToSlide(comfortStepsRef, index)}
+            />
+          ))}
         </div>
 
         <div className="mainPageHeroButton">
@@ -677,9 +749,15 @@ const MainPage = () => {
           lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et
           felis finibus consequat. Fusce non nibh luctus.
         </p>
-        <img className="mainPageReviewsImage" src={reviewImage} alt="" />
+        <picture>
+          <source media="(max-width: 480px)" srcSet={reviewsMobileImage} />
+          <img className="mainPageReviewsImage" src={reviewImage} alt="" />
+        </picture>
         <div className="mainPageReviewsMainSection">
-          <div className="mainPageReviewsMainSectionArrow">
+          <div
+            className="mainPageReviewsMainSectionArrow"
+            onClick={() => stepCarousel(reviewsSectionsRef, -1)}
+          >
             <svg
               width="13"
               height="24"
@@ -696,7 +774,11 @@ const MainPage = () => {
               />
             </svg>
           </div>
-          <div className="mainPageReviewsSections">
+          <div
+            className="mainPageReviewsSections"
+            ref={reviewsSectionsRef}
+            onScroll={(e) => updateCarouselDot(e.currentTarget, setReviewsDot)}
+          >
             <div className="mainPageReviewsSection">
               <div className="mainPageReviewsSectionBl">
                 <div className="mainPageReviewsSectionBlock">
@@ -852,8 +934,27 @@ const MainPage = () => {
                 </p>
               </div>
             </div>
+            {extraReviews.map((review, index) => (
+              <div className="mainPageReviewsSection" key={index}>
+                <div className="mainPageReviewsSectionBl">
+                  <div className="mainPageReviewsSectionBlock">
+                    {reviewAvatar}
+                    <div className="mainPageReviewsSectionInnerBlock">
+                      {starsSmall}
+                      <p className="mainPageReviewsSectionName">
+                        {review.name}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="mainPageReviewsSectionText">{review.text}</p>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="mainPageReviewsMainSectionArrow">
+          <div
+            className="mainPageReviewsMainSectionArrow"
+            onClick={() => stepCarousel(reviewsSectionsRef, 1)}
+          >
             <svg
               width="13"
               height="24"
@@ -870,6 +971,19 @@ const MainPage = () => {
               />
             </svg>
           </div>
+        </div>
+        <div className="mainPageReviewsDots">
+          {[...Array(reviewsTotal)].map((_, index) => (
+            <span
+              key={index}
+              className={
+                index === reviewsDot
+                  ? "mainPageCarouselDot mainPageCarouselDotActive"
+                  : "mainPageCarouselDot"
+              }
+              onClick={() => goToSlide(reviewsSectionsRef, index)}
+            />
+          ))}
         </div>
         <div className="mainPageHeroButton">
           <p className="mainPageHeroButtonText">Customize Your Outfit</p>
@@ -1016,13 +1130,11 @@ const MainPage = () => {
           felis finibus consequat.
         </p>
         <div className="mainPageDiscoverImages">
-          <img className="mainPageDiscoverImage" src={grayRobeImage} alt="" />
           <img
             className="mainPageDiscoverImage mainPageDiscoverImageCenter"
             src={discoverImage}
             alt=""
           />
-          <img className="mainPageDiscoverImage" src={grayRobeImage} alt="" />
         </div>
         <div className="mainPageHeroButton mainPageDiscoverButton">
           <p className="mainPageHeroButtonText">Customize Your Outfit</p>

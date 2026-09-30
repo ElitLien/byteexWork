@@ -66,6 +66,12 @@ img {
   gap: 15px;
 }
 
+.mainPageHeroAdvancementsSection svg {
+  width: 31px;
+  height: 31px;
+  flex-shrink: 0;
+}
+
 .mainPageHeroAdvancementsSectionText {
   font-family: "Sofia Pro", sans-serif;
   font-weight: 400;
@@ -311,19 +317,30 @@ img {
 
 .mainPageReviewsSections {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   width: 80%;
   gap: 42px;
   margin-left: 40px;
   margin-right: 40px;
+  padding: 16px;
+  scroll-padding-inline: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.mainPageReviewsSections::-webkit-scrollbar {
+  display: none;
 }
 
 .mainPageReviewsSection {
   background-color: #fff;
   border-radius: 12px;
-  box-shadow: 1px 4px 8px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.1);
   width: 338px;
   height: fit-content;
+  flex-shrink: 0;
+  scroll-snap-align: start;
 }
 
 .mainPageReviewsSectionBlock {
@@ -433,14 +450,20 @@ img {
   padding-block: 77px;
 }
 
+.mainPageSeenInContainter {
+  position: absolute;
+  top: -79px;
+  left: 96px;
+}
+
 .mainPageSeenInEcoStylistImage img {
   width: 100%;
 }
 
 .mainPageSeenInReview {
-  position: absolute;
+  /* position: absolute;
   top: -80px;
-  left: 96px;
+  left: 96px; */
   width: 300px;
   background: #fff;
   border: 1px solid #ededed;
@@ -766,20 +789,6 @@ img {
   margin-bottom: 48px;
 }
 
-.mainPageDiscoverImage {
-  width: 200px;
-  height: 250px;
-  object-fit: cover;
-}
-
-.mainPageDiscoverImageCenter {
-  position: relative;
-  z-index: 2;
-  width: 236px;
-  height: 300px;
-  margin: 0 -8px;
-}
-
 .mainPageDiscoverButton {
   width: 380px;
   margin-bottom: 18px;
@@ -849,4 +858,377 @@ img {
   letter-spacing: 0.03em;
   color: #676869;
   margin: 0;
+}
+
+/* ============================================================
+   MOBILE / ADAPTIVE  (phones, ~428px)
+   ============================================================ */
+/* ---------- CAROUSEL CHROME (mobile only; hidden on desktop) ---------- */
+.mainPageComfortCarousel {
+  display: contents;
+}
+
+.mainPageComfortArrow,
+.mainPageComfortDots,
+.mainPageReviewsDots {
+  display: none;
+}
+
+.mainPageCarouselDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d1cdc9;
+  cursor: pointer;
+}
+
+.mainPageCarouselDotActive {
+  background: #01005b;
+}
+
+@media (max-width: 480px) {
+  .mainPage {
+    overflow-x: hidden;
+  }
+
+  /* ---------- NOTIFICATION BAR ---------- */
+  .mainPageNotification {
+    height: auto;
+    padding: 6px 14px;
+  }
+  .mainPageNotificationText {
+    font-size: 10px;
+    line-height: 150%;
+  }
+
+  /* ---------- HERO ---------- */
+  .mainPageHero {
+    margin: 20px 20px 95px;
+  }
+  .mainPageHeroLogo {
+    display: block;
+    margin: 0 auto 24px;
+  }
+  .mainPageHeroSides {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* display:contents lets title / bullets / button interleave with the image */
+  .mainPageHeroLeft {
+    display: contents;
+  }
+  .mainPageHeroTitle {
+    order: 1;
+    width: 100%;
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .mainPageHeroRight {
+    order: 2;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .mainPageHeroImage {
+    width: 100%;
+  }
+  .mainPageHeroAdvancements {
+    order: 3;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .mainPageHeroSides .mainPageHeroButton,
+  .mainPageAbout .mainPageHeroButton {
+    order: 4;
+  }
+
+  /* Full-width CTAs on mobile */
+  .mainPageHeroButton {
+    width: auto;
+    align-self: stretch;
+  }
+
+  /* ---------- AS SEEN IN + REVIEW CARD ---------- */
+  .mainPageSeenIn {
+    padding: 24px 20px 32px;
+  }
+  .mainPageSeenInContainter {
+    left: 0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: -70px;
+    width: 100%;
+  }
+  .mainPageSeenInReview {
+    margin: 0 20px;
+    width: auto;
+  }
+  .mainPageSeenInContent {
+    margin-top: 92px;
+    gap: 16px;
+  }
+  .mainPageSeenInLogos {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .mainPageSeenInLogos::-webkit-scrollbar {
+    display: none;
+  }
+  .mainPageSeenInEcoStylistImage {
+    flex: 0 0 42%;
+    scroll-snap-align: center;
+  }
+
+  /* ---------- LOUNGEWEAR YOU CAN BE PROUD OF ---------- */
+  .mainPageProud {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 48px 20px;
+  }
+  .mainPageProudLeft {
+    display: contents;
+  }
+  .mainPageProudTitle {
+    order: 1;
+    width: 100%;
+    font-size: 28px;
+    text-align: center;
+    margin: 0;
+  }
+  .mainPageProudRight {
+    order: 2;
+    width: 100%;
+  }
+  .mainPageProudFeatures {
+    order: 3;
+    width: 100%;
+    gap: 0;
+  }
+  .mainPageProudFeature {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 24px 0;
+    border-top: 1px solid #eaeaea;
+  }
+  .mainPageProudFeatures .mainPageProudFeature:first-child {
+    border-top: none;
+  }
+  .mainPageProudCarousel {
+    width: 100%;
+    gap: 8px;
+  }
+  .mainPageProudImageWrap {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    height: auto;
+    aspect-ratio: 43 / 56;
+  }
+  .mainPageProudThumb {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* ---------- BE YOUR BEST SELF (ABOUT) ---------- */
+  .mainPageAbout {
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+    padding: 40px 20px;
+  }
+  .mainPageAboutTextContent {
+    display: contents;
+  }
+  .mainPageAboutTextContentTitle {
+    order: 1;
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+  }
+  .mainPageAboutImageContainer {
+    order: 2;
+    width: 100%;
+    height: auto;
+  }
+  .mainPageAboutImage {
+    height: auto;
+  }
+  .mainPageAboutTextContentContainer {
+    order: 3;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  /* ---------- COMFORT ---------- */
+  .mainPageComfort {
+    padding: 0 20px;
+  }
+  .mainPageComfortTitle {
+    margin-top: 48px;
+    margin-bottom: 28px;
+  }
+  .mainPageComfortCarousel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .mainPageComfortArrow {
+    display: flex;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .mainPageComfortSteps {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0;
+    margin-bottom: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .mainPageComfortSteps::-webkit-scrollbar {
+    display: none;
+  }
+  .mainPageComfortStepCard {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    scroll-snap-align: center;
+  }
+  .mainPageComfortDots,
+  .mainPageReviewsDots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  /* ---------- REVIEWS ---------- */
+  .mainPageReviews {
+    padding: 0 20px;
+  }
+  .mainPageReviewsText {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  .mainPageReviewsImage {
+    height: auto;
+  }
+  .mainPageReviewsMainSection {
+    margin-top: 40px;
+    margin-bottom: 24px;
+  }
+  .mainPageReviewsMainSectionArrow {
+    flex-shrink: 0;
+    width: auto;
+    cursor: pointer;
+  }
+  .mainPageReviewsSections {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .mainPageReviewsSections::-webkit-scrollbar {
+    display: none;
+  }
+  .mainPageReviewsSection {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    max-width: none;
+    scroll-snap-align: center;
+  }
+
+  /* ---------- FAQ ---------- */
+  .mainPageQuestions {
+    flex-direction: column;
+    padding: 0 20px;
+    margin-top: 56px;
+    gap: 0;
+  }
+  .mainPageQuestionsLeft {
+    width: 100%;
+  }
+  .mainPageQuestionsLeftTitle {
+    font-size: 28px;
+    text-align: center;
+  }
+  .mainPageQuestionsRight {
+    display: none;
+  }
+  .mainPageQuestionsLeftBlocks svg {
+    width: 100%;
+    height: auto;
+  }
+  .mainPageQuestionsLeftFirstBlockText {
+    width: auto;
+  }
+
+  /* ---------- OUR TOTAL GREEN IMPACT ---------- */
+  .mainPageInfoBanner {
+    padding-block: 40px;
+    gap: 30px;
+  }
+  .mainPageInfoBannerSections {
+    flex-direction: column;
+    align-items: center;
+  }
+  .mainPageInfoBannerSection {
+    width: 100%;
+    max-width: 300px;
+    padding: 22px 0;
+  }
+  .mainPageInfoBannerSection + .mainPageInfoBannerSection {
+    border-left: none;
+    border-top: 1px solid #d9d6d7;
+  }
+
+  /* ---------- FIND SOMETHING YOU LOVE (DISCOVER) ---------- */
+  .mainPageDiscover {
+    padding: 56px 20px 48px;
+  }
+  .mainPageDiscoverTitle {
+    font-size: 28px;
+  }
+  .mainPageDiscoverText {
+    width: 100%;
+    margin-bottom: 36px;
+  }
+  .mainPageDiscoverPayRow {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 18px;
+  }
+  .mainPageDiscoverFeatures {
+    flex-direction: column;
+    align-items: center;
+  }
+  .mainPageDiscoverFeature {
+    width: 300px;
+    padding: 20px 0;
+  }
+  .mainPageDiscoverFeature + .mainPageDiscoverFeature {
+    border-left: none;
+    border-top: 1px solid #d9d6d7;
+  }
 }
