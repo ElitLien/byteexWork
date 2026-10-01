@@ -1,8 +1,8 @@
 import "./style.css";
 
-const CustomizeButton = ({ className = "" }) => (
+const CustomizeButton = ({ className = "", text = "Customize Your Outfit" }) => (
   <div className={`customizeButton ${className}`.trim()}>
-    <p className="customizeButtonText">Customize Your Outfit</p>
+    <p className="customizeButtonText">{text}</p>
     <svg
       width="23"
       height="10"

@@ -1,13 +1,11 @@
 /* Global page-level styles. Per-section styles live with each component. */
 
+.mainPage {
+  overflow-x: hidden;
+}
+
 img {
   max-width: 100%;
   height: auto;
   display: block;
-}
-
-@media (max-width: 480px) {
-  .mainPage {
-    overflow-x: hidden;
-  }
 }

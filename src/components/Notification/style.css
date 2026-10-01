@@ -16,6 +16,16 @@
   color: #565656;
 }
 
+@media (min-width: 481px) and (max-width: 1200px) {
+  .notification {
+    height: auto;
+    padding: 6px 20px;
+  }
+  .notificationText {
+    line-height: 180%;
+  }
+}
+
 @media (max-width: 480px) {
   .notification {
     height: auto;

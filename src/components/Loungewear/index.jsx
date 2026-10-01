@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./style.css";
+import { useStrapi } from "../../hooks/useStrapi";
+import { mediaUrl } from "../../api/strapi";
 import { ArrowLeft, ArrowRight } from "../../media/icons";
 import { whiteRobeImage, grayRobeImage } from "../../media/images";
 
@@ -36,30 +38,19 @@ const iconWaves = (
   </svg>
 );
 
-const proudFeatures = [
-  {
-    icon: iconShop,
-    title: "Ethically sourced.",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et felis finibus consequat.",
-  },
-  {
-    icon: iconLeaf,
-    title: "Responsibly made.",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et felis finibus consequat.",
-  },
-  {
-    icon: iconMoon,
-    title: "Made for living in.",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et felis finibus consequat.",
-  },
-  {
-    icon: iconWaves,
-    title: "Unimaginably comfortable.",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et felis finibus consequat.",
-  },
+const featureIcons = [iconShop, iconLeaf, iconMoon, iconWaves];
+
+const featureText =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et felis finibus consequat.";
+
+const fallbackFeatures = [
+  { title: "Ethically sourced.", text: featureText },
+  { title: "Responsibly made.", text: featureText },
+  { title: "Made for living in.", text: featureText },
+  { title: "Unimaginably comfortable.", text: featureText },
 ];
 
-const proudSlides = [
+const fallbackSlides = [
   { image: whiteRobeImage, caption: "White Robe" },
   { image: grayRobeImage, caption: "Gray Set" },
   { image: whiteRobeImage, caption: "White Robe" },
@@ -73,6 +64,23 @@ const proudSlides = [
 const Loungewear = () => {
   const [current, setCurrent] = useState(0);
 
+  const { data: section } = useStrapi("loungewear-section?populate=*");
+  const { data: slidesData } = useStrapi(
+    "proud-slides?populate=*&sort=order:asc"
+  );
+
+  const title = section?.title || "Loungewear you can be proud of.";
+  const features = section?.features?.length
+    ? section.features
+    : fallbackFeatures;
+  const proudSlides = slidesData?.length
+    ? slidesData.map((slide) => ({
+        image: mediaUrl(slide.image),
+        caption: slide.caption,
+      }))
+    : fallbackSlides;
+  const activeSlide = proudSlides[current] || proudSlides[0];
+
   const showPrev = () =>
     setCurrent((index) => (index - 1 + proudSlides.length) % proudSlides.length);
 
@@ -82,11 +90,13 @@ const Loungewear = () => {
   return (
     <div className="proud">
       <div className="proudLeft">
-        <h2 className="proudTitle">Loungewear you can be proud of.</h2>
+        <h2 className="proudTitle">{title}</h2>
         <div className="proudFeatures">
-          {proudFeatures.map((feature) => (
-            <div className="proudFeature" key={feature.title}>
-              <div className="proudFeatureIcon">{feature.icon}</div>
+          {features.map((feature, index) => (
+            <div className="proudFeature" key={index}>
+              <div className="proudFeatureIcon">
+                {featureIcons[index % featureIcons.length]}
+              </div>
               <div className="proudFeatureContent">
                 <h3 className="proudFeatureTitle">{feature.title}</h3>
                 <p className="proudFeatureText">{feature.text}</p>
@@ -103,8 +113,8 @@ const Loungewear = () => {
           <div className="proudImageWrap">
             <img
               className="proudImage"
-              src={proudSlides[current].image}
-              alt={proudSlides[current].caption}
+              src={activeSlide.image}
+              alt={activeSlide.caption}
             />
             <div className="proudThumbs">
               {proudSlides.map((slide, index) => (
@@ -126,7 +136,7 @@ const Loungewear = () => {
             <ArrowRight />
           </div>
         </div>
-        <p className="proudCaption">{proudSlides[current].caption}</p>
+        <p className="proudCaption">{activeSlide.caption}</p>
       </div>
     </div>
   );

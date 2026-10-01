@@ -116,6 +116,40 @@
   white-space: nowrap;
 }
 
+@media (min-width: 481px) and (max-width: 1200px) {
+  .seenIn {
+    padding: 24px 40px 40px;
+  }
+  .seenInContainter {
+    left: 0;
+    top: -78px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .seenInReview {
+    width: 320px;
+  }
+  .seenInContent {
+    margin-top: 92px;
+    gap: 20px;
+  }
+  .seenInLogos {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 22px 44px;
+    max-width: 100%;
+  }
+  .seenInEcoStylistImage {
+    flex: 0 0 auto;
+  }
+  .seenInEcoStylistImage img {
+    width: auto;
+    height: 34px;
+  }
+}
+
 @media (max-width: 480px) {
   .seenIn {
     padding: 24px 20px 32px;

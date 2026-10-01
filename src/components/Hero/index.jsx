@@ -1,13 +1,33 @@
 import "./style.css";
+import { useStrapi } from "../../hooks/useStrapi";
+import { mediaUrl } from "../../api/strapi";
 import CustomizeButton from "../CustomizeButton";
 import { logo, headPhoto } from "../../media/images";
 
-const Hero = () => (
+const fallbackAdvancements = [
+  { text: "Beautiful, comfortable loungewear for day or night." },
+  { text: "No wasteful extras, like tags or plastic packaging." },
+  {
+    text:
+      "Our signature fabric is incredibly comfortable — unlike anything you’ve ever felt.",
+  },
+];
+
+const Hero = () => {
+  const { data } = useStrapi("hero?populate=*");
+  const title = data?.title || "Don’t apologize for being comfortable.";
+  const heroImage = data?.image ? mediaUrl(data.image) : headPhoto;
+  const buttonText = data?.buttonText || "Customize Your Outfit";
+  const advancements = data?.advancements?.length
+    ? data.advancements
+    : fallbackAdvancements;
+
+  return (
   <div className="hero">
     <img className="heroLogo" src={logo} alt="" />
     <div className="heroSides">
       <div className="heroLeft">
-        <h1 className="heroTitle">Don’t apologize for being comfortable.</h1>
+        <h1 className="heroTitle">{title}</h1>
         <div className="heroAdvancements">
           <div className="heroAdvancementsSection">
             <svg
@@ -68,7 +88,7 @@ const Hero = () => (
               />
             </svg>
             <p className="heroAdvancementsSectionText">
-              Beautiful, comfortable loungewear for day or night.
+              {advancements[0]?.text}
             </p>
           </div>
           <div className="heroAdvancementsSection">
@@ -88,7 +108,7 @@ const Hero = () => (
               />
             </svg>
             <p className="heroAdvancementsSectionText">
-              No wasteful extras, like tags or plastic packaging.
+              {advancements[1]?.text}
             </p>
           </div>
           <div className="heroAdvancementsSection">
@@ -106,18 +126,18 @@ const Hero = () => (
               />
             </svg>
             <p className="heroAdvancementsSectionText">
-              Our signature fabric is incredibly comfortable — unlike anything
-              you’ve ever felt.
+              {advancements[2]?.text}
             </p>
           </div>
         </div>
-        <CustomizeButton />
+        <CustomizeButton text={buttonText} />
       </div>
       <div className="heroRight">
-        <img className="heroImage" src={headPhoto} alt="" />
+        <img className="heroImage" src={heroImage} alt="" />
       </div>
     </div>
   </div>
-);
+  );
+};
 
 export default Hero;

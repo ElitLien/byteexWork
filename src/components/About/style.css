@@ -45,6 +45,27 @@
   margin-top: 30px;
 }
 
+@media (min-width: 481px) and (max-width: 1200px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 56px 40px;
+  }
+  .aboutImageContainer {
+    width: 100%;
+    max-width: 580px;
+    height: auto;
+  }
+  .aboutImage {
+    height: auto;
+  }
+  .aboutTextContent {
+    width: 100%;
+    max-width: 700px;
+  }
+}
+
 @media (max-width: 480px) {
   .about {
     flex-direction: column;

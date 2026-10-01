@@ -109,6 +109,23 @@
   margin: 0;
 }
 
+@media (min-width: 481px) and (max-width: 900px) {
+  .discoverFeatures {
+    flex-direction: column;
+    align-items: center;
+  }
+  .discoverFeature {
+    width: 320px;
+    max-width: 100%;
+    padding: 20px 0;
+    box-sizing: border-box;
+  }
+  .discoverFeature + .discoverFeature {
+    border-left: none;
+    border-top: 1px solid #d9d6d7;
+  }
+}
+
 @media (max-width: 480px) {
   .discover {
     padding: 56px 20px 48px;

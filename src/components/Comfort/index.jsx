@@ -1,4 +1,5 @@
 import "./style.css";
+import { useStrapi } from "../../hooks/useStrapi";
 import CustomizeButton from "../CustomizeButton";
 import RatingBadge from "../RatingBadge";
 import CarouselDots from "../CarouselDots";
@@ -6,12 +7,32 @@ import { ArrowLeft, ArrowRight } from "../../media/icons";
 import { useCarousel } from "../../hooks/useCarousel";
 import { comfortImage } from "../../media/images";
 
+const fallbackSteps = [
+  {
+    title: "You save.",
+    text: "Browse our comfort sets and save 15% when you bundle.",
+  },
+  {
+    title: "We ship.",
+    text: "We ship your items within 1–2 days of receiving your order.",
+  },
+  {
+    title: "You enjoy!",
+    text: "Wear hernest around the house, out on the town, or in bed.",
+  },
+];
+
 const Comfort = () => {
   const { ref, dot, onScroll, step, goTo } = useCarousel();
+  const { data } = useStrapi("comfort-section?populate=*");
+
+  const title = data?.title || "Comfort made easy";
+  const buttonText = data?.buttonText || "Customize Your Outfit";
+  const steps = data?.steps?.length ? data.steps : fallbackSteps;
 
   return (
     <div className="comfort">
-      <h2 className="comfortTitle">Comfort made easy</h2>
+      <h2 className="comfortTitle">{title}</h2>
       <div className="comfortCarousel">
         <div className="comfortArrow" onClick={() => step(-1)}>
           <ArrowLeft />
@@ -37,18 +58,14 @@ const Comfort = () => {
                 </clipPath>
               </defs>
             </svg>
-            <h3 className="comfortStepCardTitle">You save.</h3>
-            <p className="comfortStepCardText">
-              Browse our comfort sets and save 15% when you bundle.
-            </p>
+            <h3 className="comfortStepCardTitle">{steps[0]?.title}</h3>
+            <p className="comfortStepCardText">{steps[0]?.text}</p>
           </div>
 
           <div className="comfortStepCard">
             <img className="comfortStepCardImage" src={comfortImage} alt="" />
-            <h3 className="comfortStepCardTitle">We ship.</h3>
-            <p className="comfortStepCardText">
-              We ship your items within 1–2 days of receiving your order.
-            </p>
+            <h3 className="comfortStepCardTitle">{steps[1]?.title}</h3>
+            <p className="comfortStepCardText">{steps[1]?.text}</p>
           </div>
 
           <div className="comfortStepCard">
@@ -108,10 +125,8 @@ const Comfort = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            <h3 className="comfortStepCardTitle">You enjoy!</h3>
-            <p className="comfortStepCardText">
-              Wear hernest around the house, out on the town, or in bed.
-            </p>
+            <h3 className="comfortStepCardTitle">{steps[2]?.title}</h3>
+            <p className="comfortStepCardText">{steps[2]?.text}</p>
           </div>
         </div>
         <div className="comfortArrow" onClick={() => step(1)}>
@@ -120,7 +135,7 @@ const Comfort = () => {
       </div>
       <CarouselDots count={3} active={dot} onSelect={goTo} />
 
-      <CustomizeButton />
+      <CustomizeButton text={buttonText} />
       <RatingBadge />
     </div>
   );

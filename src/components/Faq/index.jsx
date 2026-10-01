@@ -1,11 +1,12 @@
 import { useState, Fragment } from "react";
 import "./style.css";
+import { useStrapi } from "../../hooks/useStrapi";
 import { questionsImage } from "../../media/images";
 
 const faqAnswer =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et felis finibus consequat.";
 
-const faqItems = [
+const fallbackFaqItems = [
   { question: "lorem ipsum dolor sit amet", answer: faqAnswer },
   { question: "lorem ipsum dolor sit amet", answer: faqAnswer },
   { question: "lorem ipsum dolor sit amet", answer: faqAnswer },
@@ -33,6 +34,9 @@ const Faq = () => {
     setOpenFaqs((open) =>
       open.includes(index) ? open.filter((i) => i !== index) : [...open, index]
     );
+
+  const { data } = useStrapi("faq-items?sort=order:asc");
+  const faqItems = data?.length ? data : fallbackFaqItems;
 
   return (
     <div className="questions">

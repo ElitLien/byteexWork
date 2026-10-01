@@ -58,6 +58,25 @@
   margin: 0;
 }
 
+@media (min-width: 481px) and (max-width: 900px) {
+  .infoBanner {
+    padding-inline: 40px;
+  }
+  .infoBannerSections {
+    flex-direction: column;
+    align-items: center;
+  }
+  .infoBannerSection {
+    width: 100%;
+    max-width: 320px;
+    padding: 22px 0;
+  }
+  .infoBannerSection + .infoBannerSection {
+    border-left: none;
+    border-top: 1px solid #d9d6d7;
+  }
+}
+
 @media (max-width: 480px) {
   .infoBanner {
     padding-block: 40px;

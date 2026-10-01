@@ -1,33 +1,48 @@
 import "./style.css";
+import { useStrapi } from "../../hooks/useStrapi";
+import { mediaUrl } from "../../api/strapi";
 import CustomizeButton from "../CustomizeButton";
 import { discoverImage, paymentImage } from "../../media/images";
 
-const Discover = () => (
+const fallbackFeatures = [
+  { text: "FREE Shipping on Orders over $200" },
+  { text: "Over 500+ 5 Star Reviews Online" },
+  { text: "Made ethically and responsibly." },
+];
+
+const Discover = () => {
+  const { data } = useStrapi("discover-section?populate=*");
+
+  const title = data?.title || "Find something you love.";
+  const text =
+    data?.text ||
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et felis finibus consequat.";
+  const image = data?.image ? mediaUrl(data.image) : discoverImage;
+  const payment = data?.paymentImage
+    ? mediaUrl(data.paymentImage)
+    : paymentImage;
+  const shipText = data?.shipText || "Ships in 1-2 Days";
+  const buttonText = data?.buttonText || "Customize Your Outfit";
+  const features = data?.features?.length ? data.features : fallbackFeatures;
+
+  return (
   <div className="discover">
-    <h2 className="discoverTitle">Find something you love.</h2>
-    <p className="discoverText">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis
-      sapien facilisis tincidunt pellentesque. In eget ipsum et felis finibus
-      consequat.
-    </p>
+    <h2 className="discoverTitle">{title}</h2>
+    <p className="discoverText">{text}</p>
     <div className="discoverImages">
-      <img
-        className="discoverImage discoverImageCenter"
-        src={discoverImage}
-        alt=""
-      />
+      <img className="discoverImage discoverImageCenter" src={image} alt="" />
     </div>
-    <CustomizeButton className="discoverButton" />
+    <CustomizeButton className="discoverButton" text={buttonText} />
     <div className="discoverPayRow">
       <div className="discoverShip">
         <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M3.8501 2.75H4.9501V5.5H7.7001V6.6H3.8501V2.75Z" fill="#1FAD40" />
           <path fill-rule="evenodd" clip-rule="evenodd" d="M11 5.5C11 8.53754 8.53754 11 5.5 11C2.46243 11 0 8.53754 0 5.5C0 2.46243 2.46243 0 5.5 0C8.53754 0 11 2.46243 11 5.5ZM9.9 5.5C9.9 7.93007 7.93007 9.9 5.5 9.9C3.06995 9.9 1.1 7.93007 1.1 5.5C1.1 3.06995 3.06995 1.1 5.5 1.1C7.93007 1.1 9.9 3.06995 9.9 5.5Z" fill="#1FAD40" />
         </svg>
-        <span className="discoverShipText">Ships in 1-2 Days</span>
+        <span className="discoverShipText">{shipText}</span>
       </div>
       <div className="discoverPayments">
-        <img src={paymentImage} alt="" />
+        <img src={payment} alt="" />
       </div>
     </div>
     <div className="discoverFeatures">
@@ -39,9 +54,7 @@ const Discover = () => (
           <path d="M22.8935 23.6806C21.6647 23.6806 20.6653 22.681 20.6653 21.4524C20.6653 20.2237 21.6647 19.2241 22.8935 19.2241C24.1223 19.2241 25.1221 20.2237 25.1221 21.4524C25.1221 22.681 24.1223 23.6806 22.8935 23.6806ZM22.8935 19.9709C22.0768 19.9709 21.412 20.6354 21.412 21.4524C21.412 22.2693 22.0768 22.9338 22.8935 22.9338C23.7106 22.9338 24.3754 22.2693 24.3754 21.4524C24.3754 20.6354 23.7106 19.9709 22.8935 19.9709Z" fill="#676869" stroke="#676869" stroke-width="0.5" />
           <path d="M13.1841 23.6806C11.9553 23.6806 10.9558 22.681 10.9558 21.4524C10.9558 20.2237 11.9553 19.2241 13.1841 19.2241C14.4128 19.2241 15.4123 20.2237 15.4123 21.4524C15.4123 22.681 14.4129 23.6806 13.1841 23.6806ZM13.1841 19.9709C12.3673 19.9709 11.7025 20.6354 11.7025 21.4524C11.7025 22.2693 12.3673 22.9338 13.1841 22.9338C14.0008 22.9338 14.6655 22.2693 14.6655 21.4524C14.6655 20.6354 14.0008 19.9709 13.1841 19.9709Z" fill="#676869" stroke="#676869" stroke-width="0.5" />
         </svg>
-        <p className="discoverFeatureText">
-          FREE Shipping on Orders over $200
-        </p>
+        <p className="discoverFeatureText">{features[0]?.text}</p>
       </div>
       <div className="discoverFeature">
         <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,21 +62,18 @@ const Discover = () => (
           <path d="M16.3511 26C16.2928 26 16.2345 25.991 16.1783 25.973C14.29 25.3681 12.6824 24.208 11.4 22.5248C10.3904 21.1996 9.58206 19.5502 8.99747 17.6226C8.01133 14.3712 8 11.4747 8 11.353C8 11.0614 8.22153 10.8173 8.51187 10.7893C8.55559 10.7851 12.9538 10.3335 16.0183 8.10806C16.2167 7.96388 16.4854 7.96405 16.6839 8.10812C19.7475 10.3335 24.1463 10.7851 24.1903 10.7894C24.4805 10.8177 24.7019 11.0616 24.7019 11.353C24.7019 11.4747 24.6906 14.3712 23.7045 17.6226C23.1199 19.5503 22.3115 21.1996 21.302 22.5248C20.0196 24.208 18.412 25.3682 16.5238 25.9731C16.4676 25.991 16.4093 26 16.3511 26ZM9.14884 11.8498C9.1959 12.8003 9.37887 14.9892 10.0891 17.3197C11.3013 21.2966 13.4077 23.8248 16.351 24.8371C19.3012 23.8225 21.41 21.2858 22.6206 17.2939C23.3261 14.9679 23.5071 12.7956 23.5534 11.8499C22.2847 11.6647 18.9983 11.0382 16.3509 9.25708C13.7034 11.0381 10.4176 11.6647 9.14884 11.8498Z" fill="#676869" stroke="#676869" stroke-width="0.4" />
           <path d="M16.0485 19.758C15.9142 19.758 15.7835 19.7102 15.6805 19.6221L13.6326 17.8708C13.3949 17.6675 13.367 17.3101 13.5702 17.0723C13.7734 16.8346 14.1309 16.8066 14.3686 17.01L15.9613 18.372L19.118 14.2313C19.3076 13.9826 19.6629 13.9346 19.9117 14.1243C20.1604 14.3139 20.2083 14.6693 20.0187 14.918L16.4989 19.535C16.4045 19.6588 16.2633 19.7383 16.1084 19.7548C16.0884 19.7569 16.0684 19.758 16.0485 19.758Z" fill="#676869" stroke="#676869" stroke-width="0.4" />
         </svg>
-        <p className="discoverFeatureText">
-          Over 500+ 5 Star Reviews Online
-        </p>
+        <p className="discoverFeatureText">{features[1]?.text}</p>
       </div>
       <div className="discoverFeature">
         <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="16.5" cy="16.5" r="16.5" fill="#666666" fill-opacity="0.1" />
           <path d="M11.91 11.5391C11.91 11.277 12.1233 11.0646 12.3864 11.0646H23.5239C23.6628 11.0646 23.7948 11.125 23.8853 11.2298C23.9758 11.3348 24.0158 11.4738 23.9949 11.6106L23.519 14.7189C23.4831 14.9538 23.28 15.122 23.0487 15.122C23.0248 15.122 23.0006 15.1203 22.9763 15.1165C22.7161 15.077 22.5374 14.835 22.5771 14.5759L22.9693 12.0136H12.3864C12.1233 12.0136 11.91 11.8011 11.91 11.5391ZM15.5269 19.6283H11.3049L9.54464 9.39436C9.50547 9.16655 9.30718 9 9.07507 9H6.4764C6.21327 9 6 9.21242 6 9.4745C6 9.73658 6.21327 9.949 6.4764 9.949H8.67335L10.4336 20.1829C10.4734 20.4142 10.6748 20.5774 10.9026 20.5774C10.9293 20.5773 10.9564 20.5751 10.9836 20.5705C10.9855 20.5701 10.9873 20.5698 10.9892 20.5694C11.0173 20.5746 11.0463 20.5772 11.0758 20.5772H15.5269C15.7901 20.5772 16.0033 20.3648 16.0033 20.1027C16.0033 19.8407 15.7901 19.6283 15.5269 19.6283ZM14.6061 22.9861V23.8282C14.6061 24.6196 13.9596 25.2635 13.165 25.2635C12.3703 25.2635 11.7239 24.6196 11.7239 23.8282V22.9861C11.7239 22.1947 12.3703 21.5508 13.1649 21.5508C13.9596 21.5508 14.6061 22.1947 14.6061 22.9861ZM13.6533 22.9861C13.6533 22.7179 13.4342 22.4998 13.165 22.4998H13.1649C12.8957 22.4998 12.6767 22.7179 12.6767 22.9861V23.8282C12.6767 24.0963 12.8957 24.3145 13.1649 24.3145C13.4342 24.3145 13.6533 24.0963 13.6533 23.8282V22.9861ZM26.9341 18.5605C26.653 20.81 25.5092 22.8158 23.7134 24.2084C22.202 25.3804 20.3811 26 18.496 26C18.141 26 17.784 25.978 17.4261 25.9336C17.1268 25.8965 16.8251 25.8426 16.5291 25.7737C16.3304 25.7275 16.1833 25.5603 16.1633 25.3581C16.1016 24.732 16.1099 24.0967 16.1882 23.4701C16.7687 18.8263 21.0341 15.5184 25.6964 16.0968C25.996 16.134 26.2977 16.1878 26.5934 16.2567C26.792 16.303 26.939 16.47 26.959 16.6722C27.021 17.298 27.0126 17.9333 26.9341 18.5605ZM26.0369 17.1098C25.8843 17.0814 25.731 17.0576 25.5785 17.0386C21.4379 16.5253 17.6493 19.4629 17.1337 23.5874C17.1042 23.8226 17.086 24.0591 17.0787 24.2959L21.4371 20.4927C21.6349 20.32 21.9359 20.3397 22.1093 20.5369C22.2827 20.734 22.2628 21.0338 22.0649 21.2065L17.7058 25.0103C19.6562 25.2108 21.5758 24.6631 23.1279 23.4595C24.7229 22.2227 25.7389 20.4411 25.9885 18.4432C26.0441 18.0005 26.0602 17.5534 26.0369 17.1098Z" fill="#676869" stroke="#676869" stroke-width="0.4" />
         </svg>
-        <p className="discoverFeatureText">
-          Made ethically and responsibly.
-        </p>
+        <p className="discoverFeatureText">{features[2]?.text}</p>
       </div>
     </div>
   </div>
-);
+  );
+};
 
 export default Discover;

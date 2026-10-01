@@ -84,6 +84,39 @@
   height: 645px;
 }
 
+@media (min-width: 481px) and (max-width: 1200px) {
+  .questions {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 72px;
+    padding-inline: 40px;
+  }
+  .questionsLeft {
+    width: 100%;
+    max-width: 630px;
+  }
+  .questionsLeftBlocks svg {
+    width: 100%;
+    height: auto;
+  }
+  .questionsLeftFirstBlockText {
+    width: auto;
+    max-width: 100%;
+  }
+  .questionsRight {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    justify-content: center;
+  }
+  .questionsImage {
+    width: 100%;
+    height: auto;
+    max-width: 480px;
+  }
+}
+
 @media (max-width: 480px) {
   .questions {
     flex-direction: column;
